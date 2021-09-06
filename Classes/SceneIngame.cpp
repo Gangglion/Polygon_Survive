@@ -202,9 +202,45 @@ void SceneIngame::logic(float dt)
 //모양 변경 확인을 위한 마우스 클릭
 void SceneIngame::onMouseDown(cocos2d::Event* event)
 {
-	player->removeFromParent();
-	player = nullptr;
-	player = Unit::create(UnitShapeType::PEN, PLAYER_MASK, TAG_PLAYER);
-	player->setPosition(Vec2(720 / 2, 1280 / 2 - 200));
-	addChild(player);
+	const char* playername = (player->getName()).c_str();
+	if (0 == strcmp(playername, "TriShape"))
+	{
+		player->removeFromParent();
+		player = nullptr;
+		player = Unit::create(UnitShapeType::REC, PLAYER_MASK, TAG_PLAYER);
+		player->setPosition(Vec2(720 / 2, 1280 / 2 - 200));
+		addChild(player);
+	}
+	else if (0 == strcmp(playername, "RecShape"))
+	{
+		player->removeFromParent();
+		player = nullptr;
+		player = Unit::create(UnitShapeType::PEN, PLAYER_MASK, TAG_PLAYER);
+		player->setPosition(Vec2(720 / 2, 1280 / 2 - 200));
+		addChild(player);
+	}
+	else if (0 == strcmp(playername, "PenShape"))
+	{
+		player->removeFromParent();
+		player = nullptr;
+		player = Unit::create(UnitShapeType::HEX, PLAYER_MASK, TAG_PLAYER);
+		player->setPosition(Vec2(720 / 2, 1280 / 2 - 200));
+		addChild(player);
+	}
+	else if (0 == strcmp(playername, "HexShape"))
+	{
+		player->removeFromParent();
+		player = nullptr;
+		player = Unit::create(UnitShapeType::OCT, PLAYER_MASK, TAG_PLAYER);
+		player->setPosition(Vec2(720 / 2, 1280 / 2 - 200));
+		addChild(player);
+	}
+	else if (0 == strcmp(playername, "OctShape"))
+	{
+		player->removeFromParent();
+		player = nullptr;
+		player = Unit::create(UnitShapeType::TRI, PLAYER_MASK, TAG_PLAYER);
+		player->setPosition(Vec2(720 / 2, 1280 / 2 - 200));
+		addChild(player);
+	}
 }
